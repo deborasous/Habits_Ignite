@@ -13,19 +13,22 @@
 ```npm install typescript -D```
 
 ```npm i tsx -D```
-Permite exercutar um arquivo do node com typescript sem precisar fazer conversão.
+  Permite exercutar um arquivo do node com typescript sem precisar fazer conversão.
 
 #### 4º instala biblioteca para interpretar o typescript no Node
 
 ```npx tsc --init```
-Criará um arquivo tsconfig.json com toda a configuração do typescript do projeto
+  Criará um arquivo tsconfig.json com toda a configuração do typescript do projeto
 
 #### 5º cria um script dentro do json para execusão da aplicação
 
 ```"dev": "tsx watch src/server.ts"```
-execulta com..
+
+  execulta com...
+  
 ```npm run dev```
-OBS: o watch fica assistindo todas as mudançãs no arquivo e muda sem ter que fazer reloading
+
+  OBS: o watch fica assistindo todas as mudançãs no arquivo e muda sem ter que fazer reloading
 
 INFOR
 *Dependencias de desenvolvimento não são usados em produção, somente enquanto o projeto está sendo desenvolvido.
@@ -39,7 +42,7 @@ Para isso será utilizado o FASTIFY que funciona como o express.
 #### 6ºinstala as dependências
 
 ```npm install fastify```
-É uma estrutura da web focada em fornecer melhor experiência de desenvolvimento com o mínimo de sobrecarga.
+  É uma estrutura da web focada em fornecer melhor experiência de desenvolvimento com o mínimo de sobrecarga.
 
 ## Formas de se comunicar com banco de dados
 
@@ -58,20 +61,34 @@ EX: PRISMA
 #### 7º instala a ORM PRISMA
 
 ```npm i -D prisma```
+
 e
+
 ```npm i @prisma/client```
 
 indicar que deseja usar o banco de dados do tipo SQLite (SQLite cria um arquivo local, sem precisar usar o DOCKER)
+
 ```npx prisma init --datasource-provider SQLite```
 
 Depois de criar a primeira tabela roda o comando...
+
 ```npx prisma migrate dev```
+
 que vai ler todas as alterações do arquivo schema.prisma e cria um arquivo SQL que vai fazer as alterações no banco de dados (dar um nome para o arquivo SQL é chamdado de migration que é o versionamento do banco de dados, como um git commit). Todos os migrations que for dado, será guardado dentro da pasta migrations
 
 Para visualizar, navegar e criar novos elementos no banco de dados através de uma interface, basta rodar o comando
+
 ```npx prisma studio```
 
-Para acessar a lista de dados da tabela, basta importar dentro do arquivo server.tx ```import{PrismaClient} from "@prisma/client"``` e cria uma variável ```const prisma = new PrismaClient()``` ...e já tem acesso ao banco de dados
+Para acessar a lista de dados da tabela, basta importar dentro do arquivo server.tx 
+
+```import{PrismaClient} from "@prisma/client"``` 
+
+e cria uma variável 
+
+```const prisma = new PrismaClient()``` 
+
+...e já tem acesso ao banco de dados
 
 
 
