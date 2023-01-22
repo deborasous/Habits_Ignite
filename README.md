@@ -98,13 +98,13 @@ Seleciona as tecnologias citadas.
 
 **npm install**
 
-
 ### 3º Instala Tailwindcss - biblioteca de estilização, é um plugin do Postcss / Postcss - automatiza tarefas dentro do css / autoprefixer - adiciona prefixos de browser, como webki
 
 **npm install -D tailwindcss postcss autoprefixer**
 
 Depois de instalada, para criar o arquivo do postcss.config, executa...
 **npx tailwindcss init -p**
+
 ## REACT
 
 É possível passar informações para dentro do componente por meio de propriedades.
@@ -133,5 +133,39 @@ return (
 )
 }
 
-  PROPRIEDADES são as informações que modificam  um componente visual ou comportamentalmente
+PROPRIEDADES são as informações que modificam um componente visual ou comportamentalmente
 
+## SETUP MOBILE REACT NATIVE
+
+#### 1º Criar o app
+
+```npx create-expo-app mobile --template
+
+```
+
+Seleciona o Blank (Typescript)
+
+#### iniciar a aplicação
+
+```npx expo start
+
+```
+
+Se as atualizações não estiverem sendo aplicadas, usa
+
+```npx expo start --clear
+
+```
+
+OBS: usar o emulador ou o celular para ver a aplicação
+
+#### Instala font
+
+`npx expo install expo-font @expo-google-fonts/inter`
+
+Importa as fonts dentro do App
+
+```import {useFonts, Inter_400Regular, Inter_600SemiBold, Inter_700Bold, Inter_800ExtraBold} from "@expo-google-fonts/inter";
+
+```
+Para garantir que a font será carregada antes da aplicação, usar o hook useFonts, passando as fonts da aplicação.
