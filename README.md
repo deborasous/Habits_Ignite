@@ -2,29 +2,29 @@
 
 #### 1º criar a pasta server
 
-**mkdir server**
+```mkdir server```
 
 #### 2º cria o package.json
 
-**npm init -y**
+```npm init -y```
 
 #### 3º Instala dependencias de desenvolvimento
 
-**npm install typescript -D**
+```npm install typescript -D```
 
-**npm i tsx -D**
+```npm i tsx -D```
 Permite exercutar um arquivo do node com typescript sem precisar fazer conversão.
 
 #### 4º instala biblioteca para interpretar o typescript no Node
 
-**npx tsc --init**
+```npx tsc --init```
 Criará um arquivo tsconfig.json com toda a configuração do typescript do projeto
 
 #### 5º cria um script dentro do json para execusão da aplicação
 
-**"dev": "tsx watch src/server.ts"**
+```"dev": "tsx watch src/server.ts"```
 execulta com..
-**npm run dev**
+```npm run dev```
 OBS: o watch fica assistindo todas as mudançãs no arquivo e muda sem ter que fazer reloading
 
 INFOR
@@ -38,7 +38,7 @@ Para isso será utilizado o FASTIFY que funciona como o express.
 
 #### 6ºinstala as dependências
 
-**npm install fastify**
+```npm install fastify```
 É uma estrutura da web focada em fornecer melhor experiência de desenvolvimento com o mínimo de sobrecarga.
 
 ## Formas de se comunicar com banco de dados
@@ -57,33 +57,35 @@ EX: PRISMA
 
 #### 7º instala a ORM PRISMA
 
-**npm i -D prisma**
+```npm i -D prisma```
 e
-**npm i @prisma/client**
+```npm i @prisma/client```
 
 indicar que deseja usar o banco de dados do tipo SQLite (SQLite cria um arquivo local, sem precisar usar o DOCKER)
-**npx prisma init --datasource-provider SQLite**
+```npx prisma init --datasource-provider SQLite```
 
 Depois de criar a primeira tabela roda o comando...
-**npx prisma migrate dev**
+```npx prisma migrate dev```
 que vai ler todas as alterações do arquivo schema.prisma e cria um arquivo SQL que vai fazer as alterações no banco de dados (dar um nome para o arquivo SQL é chamdado de migration que é o versionamento do banco de dados, como um git commit). Todos os migrations que for dado, será guardado dentro da pasta migrations
 
 Para visualizar, navegar e criar novos elementos no banco de dados através de uma interface, basta rodar o comando
-**npx prisma studio**
+```npx prisma studio```
 
-Para acessar a lista de dados da tabela, basta importar dentro do arquivo server.tx **import{PrismaClient} from "@prisma/client"** e cria uma variável **const prisma = new PrismaClient()** e já tem acesso ao banco de dados
+Para acessar a lista de dados da tabela, basta importar dentro do arquivo server.tx ```import{PrismaClient} from "@prisma/client"``` e cria uma variável ```const prisma = new PrismaClient()``` ...e já tem acesso ao banco de dados
+
+
 
 ### Instala CORS
 
 A configuração do CORS é para que a aplicação Front End possa buscar os dados do back end. Instala a integração do CORS com o fstify
-**npm i @fastify/cors**
+```npm i @fastify/cors```
 Import o CORS dentro do server.ts
-**import cors from "@fastify/cors"**
+```import cors from "@fastify/cors"```
 e dentro da aplicação cria um
-**app.register(cors)**
+```app.register(cors)```
 
 Poderia configurar endereços que podem acessar o back end dentro de ..
-**app.register(cors, { origin: ["http://localhost:300"]})**
+```app.register(cors, { origin: ["http://localhost:300"]})```
 
 ---
 
@@ -91,19 +93,18 @@ Poderia configurar endereços que podem acessar o back end dentro de ..
 
 #### 1º Cria a aplicação com o Vite utilizando React e typescript
 
-**npm create vite@latest**
+```npm create vite@latest```
 Seleciona as tecnologias citadas.
 
 ### 2º Instala as dependencias
 
-**npm install**
+```npm install```
 
 ### 3º Instala Tailwindcss - biblioteca de estilização, é um plugin do Postcss / Postcss - automatiza tarefas dentro do css / autoprefixer - adiciona prefixos de browser, como webki
-
-**npm install -D tailwindcss postcss autoprefixer**
+```npm install -D tailwindcss postcss autoprefixer```
 
 Depois de instalada, para criar o arquivo do postcss.config, executa...
-**npx tailwindcss init -p**
+```npx tailwindcss init -p```
 
 ## REACT
 
@@ -112,26 +113,18 @@ EX:
 \*\*no componente
 Cria um objeto passando quais propriedades o componente vai receber...
 
-interface HabitProps {
-completed: number
-}
+```interface HabitProps {completed: number}
+```
 
 ...depois passa a props como um parâmetro da função mencionando que a props deve seguir o padrão do HabitProps, para que possa ser acessada pelo App
-
-export function Habit(props: HabitProps){
-return(<p>{props.completed}</p>)
-}
+```export function Habit(props: HabitProps){return(<p>{props.completed}</p>)}
+```
 
 \*\*no App
 acessa a propriedade passando para o componente completed={3}, será mostrado na tela, no caso o número 3.
 
-App(){
-return (
-<>
-<Habits completed={3}/>
-</>
-)
-}
+```App(){return (<><Habits completed={3}/></>)})}
+```
 
 PROPRIEDADES são as informações que modificam um componente visual ou comportamentalmente
 
